@@ -2,20 +2,26 @@ package school.mjc.stage0.loops.task3;
 
 public class DigitsSum {
 
-    public static void main(String[] args) {
-        DigitsSum ds = new DigitsSum();
-        ds.printDigitsSum(12345); // Prints the sum of digits of the number 12345
-    }
-
     public void printDigitsSum(int number) {
+        // Convert the number to a string
+        String numStr = Integer.toString(number);
+
+        // Initialize a variable to store the sum
         int sum = 0;
 
-        while (number > 0) {
-            int digit = number % 10; // Get the last digit of the number
-            sum += digit; // Add the digit to the sum
-            number /= 10; // Remove the last digit from the number
+        // Iterate through the characters of the string
+        for (int i = 0; i < numStr.length(); i++) {
+            // Get the character at the current position
+            char digitChar = numStr.charAt(i);
+
+            // Convert the character to an integer by subtracting '0'
+            int digit = digitChar - '0';
+
+            // Add the digit to the sum
+            sum += digit;
         }
 
+        // Print the sum
         System.out.println(sum);
     }
 }
